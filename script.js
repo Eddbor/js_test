@@ -43,9 +43,17 @@ for(let i = 0; i < getPlayerChoice.length; i++){
     }
 const secret = document.querySelector('#secret')
 secret.addEventListener('click', () => {
-    playerMove = 'Gun'
-    alert('Where did you find that?')
-    resultstext.textContent = `${playRound()}`
+    if(playerPoints == 5 || computerPoints == 5){
+        computerPoints = 0
+        playerPoints = 0
+        winner.textContent = ' '
+        computerP.textContent = `${computerPoints}`
+        playerP.textContent = `${playerPoints}`
+    }else{
+        playerMove = 'Gun'
+        alert('Where did you find that?')
+        resultstext.textContent = `${playRound()}`
+    }
 })
 
 //these are the many outcomes that can come with a round including an extra one for gun vs gun, player using gun, and bot using gun.
